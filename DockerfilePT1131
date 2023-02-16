@@ -1,0 +1,15 @@
+FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
+
+RUN python3 -m pip install --no-cache-dir jupyterlab
+
+RUN python3 -m pip install --no-cache-dir matplotlib
+
+RUN python3 -m pip install --no-cache-dir scikit-learn
+
+RUN python3 -m pip install --no-cache-dir pandas
+
+RUN python3 -m pip install --no-cache-dir ipywidgets
+
+# RUN python3 -m pip install --no-cache-dir torchdata==0.5.0
+
+CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --notebook-dir=/tf --ip 0.0.0.0 --no-browser --allow-root"]
