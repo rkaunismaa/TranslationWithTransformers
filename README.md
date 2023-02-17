@@ -3,7 +3,7 @@ This repository contains a curated selection of notebooks and code related to Tr
 
 ## Initial setup of the run time environment
 
-Thursday, February 16, 2023
+### Thursday, February 16, 2023
 
 Create a new docker image from the following image:
 
@@ -26,12 +26,27 @@ Ok. I now see ...
 	
 So let's give er a try, shall we ... !?
 
-docker run --gpus all -it -v $(realpath ~/):/tf/All -v /home/rob/Data2:/home/rob/Data2 --env HF_DATASETS_CACHE=/home/rob/Data2/huggingface/datasets --env TRANSFORMERS_CACHE=/home/rob/Data2/huggingface/transformers -p 8888:8888 -p 6006:6006 pt1131:20230216
+    docker run --gpus all -it -v $(realpath ~/):/tf/All -v /home/rob/Data2:/home/rob/Data2 --env HF_DATASETS_CACHE=/home/rob/Data2/huggingface/datasets --env TRANSFORMERS_CACHE=/home/rob/Data2/huggingface/transformers -p 8888:8888 -p 6006:6006 pt1131:20230216
 
 As I was working through the notebooks, some additional resources were needed to run ...
 
 pip install spacy
 pip install torchdata==0.5.1
+
+### Friday, February 17, 2023
+
+Resume with the container we created yesterday ...
+
+    docker container start intelligent_golick
+
+Oh for fucks sake ... I ran ..
+
+    pip install -U trax
+
+... and now I see it's install tensorflow 2.11 ... gotta wonder what this is gonna break! .. 
+Plus jax, tensorflow text, tensorflow datasets ...
+
+If this breaks stuff, then I may have to rebuild the image. WOW, does it ever install a ton of new libraries!
 
 
 
