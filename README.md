@@ -31,6 +31,7 @@ So let's give er a try, shall we ... !?
 As I was working through the notebooks, some additional resources were needed to run ...
 
 pip install spacy
+
 pip install torchdata==0.5.1
 
 ### Friday, February 17, 2023
@@ -47,6 +48,27 @@ Oh for fucks sake ... I ran ..
 Plus jax, tensorflow text, tensorflow datasets ...
 
 If this breaks stuff, then I may have to rebuild the image. WOW, does it ever install a ton of new libraries!
+
+### Saturday, Feburary 18, 2023
+
+I reran some of the older notebooks just to ensure they still run without errors, and they do. Nice!
+
+Installed transformers ...
+
+    pip install transformers
+    
+Hmm looks like I need a few more libraries ...
+
+    pip install transformers datasets evaluate
+    
+    pip install sentencepiece
+    
+    pip install sacrebleu
+    
+Hmm ... also need to install git ... for the huggingface login stuff.
+    
+    conda install -c anaconda git
+    conda install git-lfs
 
 
 
