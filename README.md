@@ -135,6 +135,8 @@ Re-running the notebook HuggingFace.ipynb
     
 HuggingFace_2.ipynb ... same error as before. meh .. 
 
+Ok, nice. I figured out the problem. I needed to load the model from one of the checkpoint sub folders. 
+
 
 
 	
