@@ -70,6 +70,54 @@ Hmm ... also need to install git ... for the huggingface login stuff.
     conda install -c anaconda git
     conda install git-lfs
 
+For the notebook AnnotatedTransformer.ipynb, I needed to install ...
+
+    pip install altair
+    pip install gputil
+    
+### Sunday, February 19, 2023
+
+Yesterday, I was having some issues with downloading and use models in spacy. 
+
+Ok, now that is odd. Code which works just fine in one docker environment does not work in another docker environment. 
+
+    try:
+        spacy_de = spacy.load("de_core_news_sm")
+    except IOError:
+        os.system("python -m spacy download de_core_news_sm")
+        spacy_de = spacy.load("de_core_news_sm")
+
+    try:
+        spacy_en = spacy.load("en_core_web_sm")
+    except IOError:
+        os.system("python -m spacy download en_core_web_sm")
+        spacy_en = spacy.load("en_core_web_sm")
+        
+Both environments have spacy version 3.5.0
+
+docker container start intelligent_golick => fails
+
+docker container start cool_noether => works
+
+So yeah, I am going to trash the container intelligent_golick and start fresh from the original image. 
+
+Killed it, then ran ...
+
+
+        docker run --gpus all -it -v $(realpath ~/):/tf/All -v /home/rob/Data2:/home/rob/Data2 --env HF_DATASETS_CACHE=/home/rob/Data2/huggingface/datasets --env TRANSFORMERS_CACHE=/home/rob/Data2/huggingface/transformers -p 8888:8888 -p 6006:6006 pt1131:20230216
+        
+Spin up fine. Started the AnnotatedTransformer.ipynb notebook. Ran 'pip install spacy'. Then ran the code to download the models. Stuff works! So I guess the takeaway is that it's always good to try stuff in another environment. I dicked around in the same intelligent_golick environment for too long, trying to see why the spacy stuff was no longer working, not realizing it was something outside of spacy that was causing the problem. 
+
+Below are the various packages I installed as I worked my way through this notebook:
+
+    pip install spacy
+    
+    pip install altair
+    
+    pip install GPUtil
+    
+    pip install torchdata==0.5.1
+
 
 
 	
