@@ -117,6 +117,23 @@ Below are the various packages I installed as I worked my way through this noteb
     pip install GPUtil
     
     pip install torchdata==0.5.1
+    
+    
+I now have a new container,  docker container start sad_nightingale.
+
+Re-running the notebook HuggingFace.ipynb
+
+    pip install transformers
+    
+    pip install datasets
+    
+    pip install sentencepiece
+    
+    pip install evaluate
+    
+    pip install sacrebleu
+    
+HuggingFace_2.ipynb ... same error as before. meh .. 
 
 
 
